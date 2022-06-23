@@ -1,4 +1,4 @@
 public class Main{
-  public static void Main(Strign[] args{
+  public static void Main(String[] args{
   }
 }
