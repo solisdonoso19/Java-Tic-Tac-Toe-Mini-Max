@@ -25,7 +25,7 @@ public class cruzCero implements ActionListener {
                 menu.setVisible(true);
             }
         });
-
+        int a;
         // display buttons
         for (int i = 0; i <= 8; i++) {
             btnGame[i] = new JButton("");
