@@ -11,8 +11,8 @@ public class Menu extends cruzCero implements ActionListener {
     private JButton exit, gameInit;
     // JLabel for information
     private JLabel info;
-    // booleans control variable for X & 0
-    boolean btnX, btn0;
+    // object of game
+    cruzCero game = new cruzCero();
 
     void printMenuWindow() {
         // displays menu windows on screen
@@ -28,8 +28,8 @@ public class Menu extends cruzCero implements ActionListener {
         for (int i = 0; i <= 1; i++) {
             team[i] = new JButton();
             team[i].setBounds(10 + 55 * (i % 1), 80 + 55 * (i / 1), 265, 50);
-            wMenu.add(team[i]);
             team[i].addActionListener(this);
+            wMenu.add(team[i]);
         }
         team[0].setText("0");
         team[1].setText("X");
@@ -61,22 +61,29 @@ public class Menu extends cruzCero implements ActionListener {
             // this change button colors
             team[0].setBackground(new java.awt.Color(78, 212, 112));
             team[1].setBackground(new java.awt.Color(111, 118, 113));
-            btnX = false;
-            btn0 = true;
+            game.teamX = false;
+            game.team0 = true;
         }
         // if X button is selected
         if (e.getSource() == team[1]) {
             // this change button colors
             team[0].setBackground(new java.awt.Color(111, 118, 113));
             team[1].setBackground(new java.awt.Color(78, 212, 112));
-            btnX = true;
-            btn0 = false;
+            game.teamX = true;
+            game.team0 = false;
+        }
+
+        if (e.getSource() == gameInit) {
+            wMenu.setVisible(false);
+            // this set the menu visible when users close the game windows
+            game.printGameWindow(wMenu);
         }
 
         // exit button
         if (e.getSource() == exit) {
             System.exit(0);
         }
+
     }
 
 }
