@@ -3,10 +3,16 @@ import java.util.*;
 import java.awt.event.*;
 
 public class cruzCero implements ActionListener {
+    // JFrame windows
     protected JFrame wGame, mDialog;
+    // button array
     protected JButton[] btnGame = new JButton[9];
-    protected JButton btnTemporal = new JButton();;
+    // booleans for character selected
     protected boolean team0, teamX;
+    // Character X & 0
+    protected String target;
+    // variable to determine first turn
+    protected boolean turn;
 
     void printGameWindow(JFrame menu) {
         // displays game windows on screen
@@ -32,15 +38,130 @@ public class cruzCero implements ActionListener {
             btnGame[i].addActionListener(this);
             wGame.add(btnGame[i]);
         }
-        btnTemporal.addActionListener(this);
+        // initializing target
+        if (team0) {
+            target = "0";
+        } else {
+            target = "X";
+        }
 
+        turn = turno();
+    }
+
+    // function to determine who starts first
+    // 60% of the time the computer starts
+    boolean turno() {
+        double firstTurn = Math.random();
+        if (firstTurn < 0.6) { // <- determined 60% of the time
+            JOptionPane.showMessageDialog(mDialog, "El primer turno es de la COMPUTADORA!");
+            return false;
+        } else {
+            JOptionPane.showMessageDialog(mDialog, "El primer turno es de USTED!");
+            return true; // <- other 40%
+        }
     }
 
     public void actionPerformed(ActionEvent e) {
-        System.out.println("entrando al action performed");
-        btnTemporal = (JButton) e.getSource();
-        if (btnTemporal == e.getSource()) {
-            System.out.println(team0 + " | " + teamX);
+        if (e.getSource() == btnGame[0]) {
+            // if my turn?
+            if (turn) { // yes, so
+                btnGame[0].setText(target);
+                // target value exchange
+                if (target.equals("0")) {
+                    target = "X";
+                } else if (target.equals("X")) {
+                    target = "0";
+                }
+            }
         }
+
+        if (e.getSource() == btnGame[1]) {
+            if (turn) {
+                btnGame[1].setText(target);
+                if (target.equals("0")) {
+                    target = "X";
+                } else if (target.equals("X")) {
+                    target = "0";
+                }
+            }
+        }
+
+        if (e.getSource() == btnGame[2]) {
+            if (turn) {
+                btnGame[2].setText(target);
+                if (target.equals("0")) {
+                    target = "X";
+                } else if (target.equals("X")) {
+                    target = "0";
+                }
+            }
+        }
+
+        if (e.getSource() == btnGame[3]) {
+            if (turn) {
+                btnGame[3].setText(target);
+                if (target.equals("0")) {
+                    target = "X";
+                } else if (target.equals("X")) {
+                    target = "0";
+                }
+            }
+        }
+
+        if (e.getSource() == btnGame[4]) {
+            if (turn) {
+                btnGame[4].setText(target);
+                if (target.equals("0")) {
+                    target = "X";
+                } else if (target.equals("X")) {
+                    target = "0";
+                }
+            }
+        }
+
+        if (e.getSource() == btnGame[5]) {
+            if (turn) {
+                btnGame[5].setText(target);
+                if (target.equals("0")) {
+                    target = "X";
+                } else if (target.equals("X")) {
+                    target = "0";
+                }
+            }
+        }
+
+        if (e.getSource() == btnGame[6]) {
+            if (turn) {
+                btnGame[6].setText(target);
+                if (target.equals("0")) {
+                    target = "X";
+                } else if (target.equals("X")) {
+                    target = "0";
+                }
+            }
+        }
+
+        if (e.getSource() == btnGame[7]) {
+            if (turn) {
+                btnGame[7].setText(target);
+                if (target.equals("0")) {
+                    target = "X";
+                } else if (target.equals("X")) {
+                    target = "0";
+                }
+            }
+        }
+
+        if (e.getSource() == btnGame[8]) {
+            if (turn) {
+                btnGame[8].setText(target);
+                if (target.equals("0")) {
+                    target = "X";
+                } else if (target.equals("X")) {
+                    target = "0";
+                }
+            }
+        }
+
     }
 }

@@ -83,7 +83,7 @@ public class Menu extends cruzCero implements ActionListener {
 
         if (e.getSource() == gameInit) {
             // if user has no selected a character, display a message
-            if (team0 == false && teamX == false) {
+            if (game.team0 == false && game.teamX == false) {
                 JOptionPane.showMessageDialog(mDialog, "Por favor seleccione un caracter para jugar");
             } else {
                 wMenu.setVisible(false);
