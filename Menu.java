@@ -1,5 +1,8 @@
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
+
 import java.util.*;
+import java.awt.Font;
 import java.awt.event.*;
 
 public class Menu extends cruzCero implements ActionListener {
@@ -52,6 +55,12 @@ public class Menu extends cruzCero implements ActionListener {
 
         info = new JLabel("Cruz & Cero");
         info.setBounds(10, 10, 200, 50);
+        wMenu.add(info);
+
+        /* JUAN añadio texto en ventana */
+        info = new JLabel("Seleccione un caracter para jugar");
+        /*info.setFont(new Font("Serif", Font.PLAIN,20));*/
+        info.setBounds(10, 40, 500, 50);
         wMenu.add(info);
     }
 
