@@ -1,13 +1,12 @@
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
-
 import java.util.*;
 import java.awt.Font;
 import java.awt.event.*;
 
 public class Menu extends cruzCero implements ActionListener {
     // JFrame windows
-    protected JFrame wMenu;
+    protected JFrame wMenu, mDialog;
     // X & 0 buttons
     protected JButton[] team = new JButton[2];
     // exit button & start game button
@@ -59,7 +58,7 @@ public class Menu extends cruzCero implements ActionListener {
 
         /* JUAN añadio texto en ventana */
         info = new JLabel("Seleccione un caracter para jugar");
-        /*info.setFont(new Font("Serif", Font.PLAIN,20));*/
+        /* info.setFont(new Font("Serif", Font.PLAIN,20)); */
         info.setBounds(10, 40, 500, 50);
         wMenu.add(info);
     }
@@ -83,9 +82,14 @@ public class Menu extends cruzCero implements ActionListener {
         }
 
         if (e.getSource() == gameInit) {
-            wMenu.setVisible(false);
-            // this set the menu visible when users close the game windows
-            game.printGameWindow(wMenu);
+            // if user has no selected a character, display a message
+            if (team0 == false && teamX == false) {
+                JOptionPane.showMessageDialog(mDialog, "Por favor seleccione un caracter para jugar");
+            } else {
+                wMenu.setVisible(false);
+                // this set the menu visible when users close the game windows
+                game.printGameWindow(wMenu);
+            }
         }
 
         // exit button
