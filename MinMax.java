@@ -5,7 +5,7 @@ public class MinMax {
     private Integer[] gameValues = new Integer[9];
     private Integer deepth = 1;
     private static Integer endboard = 9;
-    private booelan change = false;
+    private boolean change = false;
 
     public void assigValues(JButton[] btnGame) {
         for (int i = 0; i < endboard; i++) {
@@ -43,7 +43,7 @@ public class MinMax {
     }
 
     private void miniMax() {
-        int bestPlay, max, actualMax;
+        int bestPlay=0, max, actualMax;
         max = Integer.MIN_VALUE;
         for (int i = 0; i < endboard; i++) {
             if (gameValues[i] == 0) {
@@ -65,6 +65,7 @@ public class MinMax {
     }
 
     public int minValue(int alfa, int bera) {
+        return bera;
 
     }
 

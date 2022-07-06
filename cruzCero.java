@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.util.*;
 import java.awt.event.*;
+import java.awt.Font;
 
 public class cruzCero extends MinMax implements ActionListener {
     // JFrame windows
@@ -18,9 +19,9 @@ public class cruzCero extends MinMax implements ActionListener {
 
     void printGameWindow(JFrame menu) {
         // displays game windows on screen
-        wGame = new JFrame("Juego Cruz y Cero");
+        wGame = new JFrame("Juego Cruz y Cero-JUEGO");
         // this place the window in the center of the screen
-        wGame.setSize(500, 500);
+        wGame.setSize(600, 600);
         wGame.setLocationRelativeTo(null);
         wGame.setLayout(null);
         // destroy the windows when users close the game
@@ -32,7 +33,8 @@ public class cruzCero extends MinMax implements ActionListener {
         // display buttons
         for (int i = 0; i <= 8; i++) {
             btnGame[i] = new JButton("");
-            btnGame[i].setBounds(166 * (i % 3), 166 * (i / 3), 166, 166);
+            btnGame[i].setFont(new Font("Serif", Font.PLAIN, 22));
+            btnGame[i].setBounds(166 * (i % 3), 166 * (i / 3), 155, 155);
             btnGame[i].addActionListener(this);
             wGame.add(btnGame[i]);
         }
