@@ -25,7 +25,7 @@ public class MinMax {
         for (int i = 0; i < endboard; i++) {
             if (gameValues[i] == 1 || gameValues[i] == 2){ 
                 continue; 
-                se {
+            }else{
                 return false;
             }
         }
@@ -54,7 +54,7 @@ public class MinMax {
         return false;
     }
 
-    // ic void miniMax() {
+    // c void miniMax() {
     // int bestPlay = -1, max, actualMax;
     // = Integer.MIN_VALUE;
     // i = 0; i < endboard; i++) {
@@ -63,7 +63,8 @@ public class MinMax {
     // gameValues[i] = 2;
     // tmpBestPlay = i;
 
-    // actualMax = minValue(0, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    //
+
     // gameValues[tmpBestPlay] = 0;
 
     // max < actualMax) {
@@ -89,7 +90,8 @@ public class MinMax {
 
     // if (max < actualMax) {
     // max = actualMax;
-    // bestPlay = tmpBestPlay;
+    //
+
     // }
     // }
     // }

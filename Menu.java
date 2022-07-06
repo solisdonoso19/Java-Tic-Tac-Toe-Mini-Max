@@ -26,9 +26,15 @@ public class Menu extends cruzCero implements ActionListener {
         wMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         wMenu.setVisible(true);
 
+        info = new JLabel("Cruz & Cero");
+        info.setFont(new Font("Serif", Font.PLAIN, 20));
+        info.setBounds(100, 10, 200, 50);
+        wMenu.add(info);
+
         // display buttons
         for (int i = 0; i <= 1; i++) {
             team[i] = new JButton();
+            team[i].setFont(new Font("Serif", Font.PLAIN, 18));
             team[i].setBounds(10 + 55 * (i % 1), 80 + 55 * (i / 1), 265, 50);
             team[i].addActionListener(this);
             wMenu.add(team[i]);
@@ -37,11 +43,13 @@ public class Menu extends cruzCero implements ActionListener {
         team[1].setText("X");
 
         gameInit = new JButton("Iniciar Juego");
+        gameInit.setFont(new Font("Serif", Font.PLAIN, 18));
         gameInit.setBounds(10, 200, 265, 50);
         wMenu.add(gameInit);
         gameInit.addActionListener(this);
 
         exit = new JButton("Salir");
+        exit.setFont(new Font("Serif", Font.PLAIN, 18));
         exit.setBounds(10, 400, 265, 50);
         wMenu.add(exit);
         exit.addActionListener(this);
@@ -49,16 +57,13 @@ public class Menu extends cruzCero implements ActionListener {
 
         // some information
         info = new JLabel("info");
+        info.setFont(new Font("Serif", Font.PLAIN, 16));
         info.setBounds(10, 250, 200, 50);
-        wMenu.add(info);
-
-        info = new JLabel("Cruz & Cero");
-        info.setBounds(10, 10, 200, 50);
         wMenu.add(info);
 
         /* JUAN añadio texto en ventana */
         info = new JLabel("Seleccione un caracter para jugar");
-        info.setFont(new Font("Serif", Font.PLAIN, 20));
+        info.setFont(new Font("Serif", Font.PLAIN, 16));
         info.setBounds(10, 40, 500, 50);
         wMenu.add(info);
     }
