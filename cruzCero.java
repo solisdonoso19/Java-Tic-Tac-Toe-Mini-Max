@@ -12,11 +12,11 @@ public class cruzCero implements ActionListener {
     // Character X & 0
     protected String target;
     // variable to determine first turn
-    protected boolean turn;
+    protected boolean turn, win;
 
     void printGameWindow(JFrame menu) {
         // displays game windows on screen
-        JFrame wGame = new JFrame("Juego Cruz y Cero");
+        wGame = new JFrame("Juego Cruz y Cero");
         // this place the window in the center of the screen
         wGame.setSize(500, 500);
         wGame.setLocationRelativeTo(null);
@@ -26,11 +26,7 @@ public class cruzCero implements ActionListener {
         wGame.setVisible(true);
 
         // this set the menu visible when users close the game windows
-        wGame.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent we) {
-                menu.setVisible(true);
-            }
-        });
+        visibleMenu(menu);
         // display buttons
         for (int i = 0; i <= 8; i++) {
             btnGame[i] = new JButton("");
@@ -44,8 +40,16 @@ public class cruzCero implements ActionListener {
         } else {
             target = "X";
         }
-
         turn = turno();
+    }
+
+    // set visible menu windows
+    void visibleMenu(JFrame menu) {
+        wGame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                menu.setVisible(true);
+            }
+        });
     }
 
     // function to determine who starts first
@@ -61,6 +65,36 @@ public class cruzCero implements ActionListener {
         }
     }
 
+    // function to determinate wins
+    boolean winGame() {
+        if (btnGame[0].getText().equals(btnGame[1].getText()) && btnGame[1].getText().equals(btnGame[2].getText())
+                && btnGame[0].getText().compareTo("") != 0) {
+            return true;
+        } else if (btnGame[3].getText().equals(btnGame[4].getText())
+                && btnGame[4].getText().equals(btnGame[5].getText()) && btnGame[3].getText().compareTo("") != 0) {
+            return true;
+        } else if (btnGame[6].getText().equals(btnGame[7].getText())
+                && btnGame[7].getText().equals(btnGame[8].getText()) && btnGame[6].getText().compareTo("") != 0) {
+            return true;
+        } else if (btnGame[0].getText().equals(btnGame[3].getText())
+                && btnGame[3].getText().equals(btnGame[6].getText()) && btnGame[0].getText().compareTo("") != 0) {
+            return true;
+        } else if (btnGame[1].getText().equals(btnGame[4].getText())
+                && btnGame[4].getText().equals(btnGame[7].getText()) && btnGame[1].getText().compareTo("") != 0) {
+            return true;
+        } else if (btnGame[2].getText().equals(btnGame[5].getText())
+                && btnGame[5].getText().equals(btnGame[8].getText()) && btnGame[2].getText().compareTo("") != 0) {
+            return true;
+        } else if (btnGame[0].getText().equals(btnGame[4].getText())
+                && btnGame[4].getText().equals(btnGame[8].getText()) && btnGame[0].getText().compareTo("") != 0) {
+            return true;
+        } else if (btnGame[2].getText().equals(btnGame[4].getText())
+                && btnGame[4].getText().equals(btnGame[6].getText()) && btnGame[2].getText().compareTo("") != 0) {
+            return true;
+        }
+        return false;
+    }
+
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnGame[0]) {
             // if my turn?
@@ -73,6 +107,16 @@ public class cruzCero implements ActionListener {
                     target = "0";
                 }
             }
+            // call the win function
+            if (win = winGame() == true) {
+                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
+                // this close de windows of the game to return to the menu
+                wGame.dispose();
+                // !!!!! i couldn't do that the menu windows set visible when the game is over
+                // !!!!!!
+                // visibleMenu(menu);
+            }
+
         }
 
         if (e.getSource() == btnGame[1]) {
@@ -83,6 +127,10 @@ public class cruzCero implements ActionListener {
                 } else if (target.equals("X")) {
                     target = "0";
                 }
+            }
+            if (win = winGame() == true) {
+                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
+                wGame.dispose();
             }
         }
 
@@ -95,6 +143,10 @@ public class cruzCero implements ActionListener {
                     target = "0";
                 }
             }
+            if (win = winGame() == true) {
+                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
+                wGame.dispose();
+            }
         }
 
         if (e.getSource() == btnGame[3]) {
@@ -105,6 +157,10 @@ public class cruzCero implements ActionListener {
                 } else if (target.equals("X")) {
                     target = "0";
                 }
+            }
+            if (win = winGame() == true) {
+                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
+                wGame.dispose();
             }
         }
 
@@ -117,6 +173,10 @@ public class cruzCero implements ActionListener {
                     target = "0";
                 }
             }
+            if (win = winGame() == true) {
+                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
+                wGame.dispose();
+            }
         }
 
         if (e.getSource() == btnGame[5]) {
@@ -127,6 +187,10 @@ public class cruzCero implements ActionListener {
                 } else if (target.equals("X")) {
                     target = "0";
                 }
+            }
+            if (win = winGame() == true) {
+                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
+                wGame.dispose();
             }
         }
 
@@ -139,6 +203,10 @@ public class cruzCero implements ActionListener {
                     target = "0";
                 }
             }
+            if (win = winGame() == true) {
+                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
+                wGame.dispose();
+            }
         }
 
         if (e.getSource() == btnGame[7]) {
@@ -150,6 +218,10 @@ public class cruzCero implements ActionListener {
                     target = "0";
                 }
             }
+            if (win = winGame() == true) {
+                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
+                wGame.dispose();
+            }
         }
 
         if (e.getSource() == btnGame[8]) {
@@ -160,6 +232,10 @@ public class cruzCero implements ActionListener {
                 } else if (target.equals("X")) {
                     target = "0";
                 }
+            }
+            if (win = winGame() == true) {
+                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
+                wGame.dispose();
             }
         }
 

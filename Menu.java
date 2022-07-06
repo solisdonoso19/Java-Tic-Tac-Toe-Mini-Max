@@ -58,7 +58,7 @@ public class Menu extends cruzCero implements ActionListener {
 
         /* JUAN añadio texto en ventana */
         info = new JLabel("Seleccione un caracter para jugar");
-        /* info.setFont(new Font("Serif", Font.PLAIN,20)); */
+        info.setFont(new Font("Serif", Font.PLAIN, 20));
         info.setBounds(10, 40, 500, 50);
         wMenu.add(info);
     }
