@@ -19,7 +19,7 @@ public class Menu extends cruzCero implements ActionListener {
     void printMenuWindow() {
         // displays menu windows on screen
         wMenu = new JFrame("Juego Cruz y Cero");
-        wMenu.setSize(300, 500);
+        wMenu.setSize(300, 510);
         // this place the window in the center of the screen
         wMenu.setLocationRelativeTo(null);
         wMenu.setLayout(null);
