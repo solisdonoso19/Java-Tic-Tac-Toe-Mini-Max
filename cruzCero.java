@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.util.*;
 import java.awt.event.*;
 
-public class cruzCero implements ActionListener {
+public class cruzCero extends MinMax implements ActionListener {
     // JFrame windows
     protected JFrame wGame, mDialog;
     // button array
@@ -13,6 +13,8 @@ public class cruzCero implements ActionListener {
     protected String target;
     // variable to determine first turn
     protected boolean turn, win;
+    // object of minmax
+    protected MinMax minMax = new MinMax();
 
     void printGameWindow(JFrame menu) {
         // displays game windows on screen
@@ -56,43 +58,13 @@ public class cruzCero implements ActionListener {
     // 60% of the time the computer starts
     boolean turno() {
         double firstTurn = Math.random();
-        if (firstTurn < 0.6) { // <- determined 60% of the time
+        if (firstTurn < 0.2) { // <- determined 60% of the time
             JOptionPane.showMessageDialog(mDialog, "El primer turno es de la COMPUTADORA!");
             return false;
         } else {
             JOptionPane.showMessageDialog(mDialog, "El primer turno es de USTED!");
             return true; // <- other 40%
         }
-    }
-
-    // function to determinate wins
-    boolean winGame() {
-        if (btnGame[0].getText().equals(btnGame[1].getText()) && btnGame[1].getText().equals(btnGame[2].getText())
-                && btnGame[0].getText().compareTo("") != 0) {
-            return true;
-        } else if (btnGame[3].getText().equals(btnGame[4].getText())
-                && btnGame[4].getText().equals(btnGame[5].getText()) && btnGame[3].getText().compareTo("") != 0) {
-            return true;
-        } else if (btnGame[6].getText().equals(btnGame[7].getText())
-                && btnGame[7].getText().equals(btnGame[8].getText()) && btnGame[6].getText().compareTo("") != 0) {
-            return true;
-        } else if (btnGame[0].getText().equals(btnGame[3].getText())
-                && btnGame[3].getText().equals(btnGame[6].getText()) && btnGame[0].getText().compareTo("") != 0) {
-            return true;
-        } else if (btnGame[1].getText().equals(btnGame[4].getText())
-                && btnGame[4].getText().equals(btnGame[7].getText()) && btnGame[1].getText().compareTo("") != 0) {
-            return true;
-        } else if (btnGame[2].getText().equals(btnGame[5].getText())
-                && btnGame[5].getText().equals(btnGame[8].getText()) && btnGame[2].getText().compareTo("") != 0) {
-            return true;
-        } else if (btnGame[0].getText().equals(btnGame[4].getText())
-                && btnGame[4].getText().equals(btnGame[8].getText()) && btnGame[0].getText().compareTo("") != 0) {
-            return true;
-        } else if (btnGame[2].getText().equals(btnGame[4].getText())
-                && btnGame[4].getText().equals(btnGame[6].getText()) && btnGame[2].getText().compareTo("") != 0) {
-            return true;
-        }
-        return false;
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -107,11 +79,14 @@ public class cruzCero implements ActionListener {
                     target = "0";
                 }
             }
+
+            minMax.assigValues(btnGame);
             // call the win function
-            if (win = winGame() == true) {
+
+            if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
                 // this close de windows of the game to return to the menu
-                wGame.dispose();
+                // wGame.dispose();
                 // !!!!! i couldn't do that the menu windows set visible when the game is over
                 // !!!!!!
                 // visibleMenu(menu);
@@ -128,9 +103,10 @@ public class cruzCero implements ActionListener {
                     target = "0";
                 }
             }
-            if (win = winGame() == true) {
+            minMax.assigValues(btnGame);
+            if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                wGame.dispose();
+                // wGame.dispose();
             }
         }
 
@@ -143,9 +119,10 @@ public class cruzCero implements ActionListener {
                     target = "0";
                 }
             }
-            if (win = winGame() == true) {
+            minMax.assigValues(btnGame);
+            if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                wGame.dispose();
+                // wGame.dispose();
             }
         }
 
@@ -158,9 +135,10 @@ public class cruzCero implements ActionListener {
                     target = "0";
                 }
             }
-            if (win = winGame() == true) {
+            minMax.assigValues(btnGame);
+            if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                wGame.dispose();
+                // wGame.dispose();
             }
         }
 
@@ -173,9 +151,10 @@ public class cruzCero implements ActionListener {
                     target = "0";
                 }
             }
-            if (win = winGame() == true) {
+            minMax.assigValues(btnGame);
+            if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                wGame.dispose();
+                // wGame.dispose();
             }
         }
 
@@ -188,9 +167,10 @@ public class cruzCero implements ActionListener {
                     target = "0";
                 }
             }
-            if (win = winGame() == true) {
+            minMax.assigValues(btnGame);
+            if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                wGame.dispose();
+                // wGame.dispose();
             }
         }
 
@@ -203,9 +183,10 @@ public class cruzCero implements ActionListener {
                     target = "0";
                 }
             }
-            if (win = winGame() == true) {
+            minMax.assigValues(btnGame);
+            if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                wGame.dispose();
+                // wGame.dispose();
             }
         }
 
@@ -218,9 +199,10 @@ public class cruzCero implements ActionListener {
                     target = "0";
                 }
             }
-            if (win = winGame() == true) {
+            minMax.assigValues(btnGame);
+            if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                wGame.dispose();
+                // wGame.dispose();
             }
         }
 
@@ -233,9 +215,10 @@ public class cruzCero implements ActionListener {
                     target = "0";
                 }
             }
-            if (win = winGame() == true) {
+            minMax.assigValues(btnGame);
+            if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                wGame.dispose();
+                // wGame.dispose();
             }
         }
 
