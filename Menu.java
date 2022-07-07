@@ -93,7 +93,7 @@ public class Menu extends cruzCero implements ActionListener {
             } else {
                 wMenu.setVisible(false);
                 // this set the menu visible when users close the game windows
-                game.printGameWindow(wMenu);
+                game.printGameWindow(wMenu);// this
             }
         }
 

@@ -31,7 +31,7 @@ public class cruzCero extends MinMax implements ActionListener {
         wGame.setVisible(true);
 
         // this set the menu visible when users close the game windows
-        visibleMenu(menu);
+        visibleMenu(menu);// this
         // display buttons
         for (int i = 0; i <= 8; i++) {
             btnGame[i] = new JButton("");
