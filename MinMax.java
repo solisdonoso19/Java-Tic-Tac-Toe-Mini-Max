@@ -1,4 +1,6 @@
 import javax.swing.*;
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
 import java.util.*;
 
 public class MinMax {
@@ -7,11 +9,11 @@ public class MinMax {
     private static Integer endboard = 9;
     private boolean change = false;
 
-    public void assigValues(JButton[] btnGame) {
+    public void assigValues() {
         for (int i = 0; i < endboard; i++) {
-            if (btnGame[i].getText().compareTo("0") == 0) {
+            if (cruzCero.btnGame[i].getText().compareTo("0") == 0) {
                 gameValues[i] = 2;
-            } else if (btnGame[i].getText().compareTo("X") == 0) {
+            } else if (cruzCero.btnGame[i].getText().compareTo("X") == 0) {
                 gameValues[i] = 1;
             } else {
                 gameValues[i] = 0;
@@ -74,38 +76,66 @@ public class MinMax {
         }
 
         gameValues[bestPlay] = 2;
-        change = false;
+        cruzCero.btnGame[bestPlay].setText(cruzCero.target);
+        change = true;
     }
 
     public int minValue(int deph, int alfa, int beta) {
+        if (winGame() || tieGame()) {
+            return heuristica();
+        } else if (deepth < deph) {
+            return heuristica();
+        } else {
+            for (int i = 0; i < endboard; i++) {
+                if (gameValues[i] == 0) {
+                    int tmpBestPlay;
+                    gameValues[i] = 1;
+                    tmpBestPlay = i;
 
-        for (int i = 0; i < endboard; i++) {
-            if (gameValues[i] == 0) {
-                int tmpBestPlay;
-                gameValues[i] = 1;
-                tmpBestPlay = i;
+                    beta = min(beta, maxValue(deph + 1, alfa, beta));
+                    gameValues[tmpBestPlay] = 0;
+                    if (alfa >= beta) {
+                        return alfa;
 
-                beta = maxValu(deph, alfa, beta);
-                gameValues[tmpBestPlay] = 0;
-                if (alfa >= beta) {
-                    return alfa;
-
+                    }
                 }
             }
+            return beta;
         }
-        return beta;
     }
 
     public int maxValue(int deph, int alfa, int beta) {
+        if (winGame() || tieGame()) {
+            return heuristica();
+        } else if (deepth < deph) {
+            return heuristica();
+        } else {
+            for (int i = 0; i < endboard; i++) {
+                if (gameValues[i] == 0) {
+                    int tmpBestPlay;
+                    gameValues[i] = 2;
+                    tmpBestPlay = i;
+
+                    alfa = max(alfa, maxValue(deph + 1, alfa, beta));
+                    gameValues[tmpBestPlay] = 0;
+                    if (alfa >= beta) {
+                        return beta;
+
+                    }
+                }
+            }
+            return alfa;
+        }
+    }
+
+    public int heuristica() {
+        int costo = 0;
+        costo = cost(2) - cost(1);
+        return costo;
+    }
+
+    public int cost(int player) {
         return 0;
-    }
-
-    public void heuristica() {
-
-    }
-
-    public void cost() {
-
     }
 
 }
