@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 public class Menu extends cruzCero implements ActionListener {
     // JFrame windows
-    protected JFrame wMenu, mDialog;
+    public static JFrame wMenu, mDialog;
     // X & 0 buttons
     protected JButton[] team = new JButton[2];
     // exit button & start game button
