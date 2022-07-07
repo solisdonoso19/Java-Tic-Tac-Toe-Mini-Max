@@ -71,6 +71,7 @@ public class cruzCero extends MinMax implements ActionListener {
         }
     }
 
+    /* Ejecuta la accion de mostrar la ventana del menu y ocultar la ventana de juego */
     public void actionPerformed(ActionEvent e) {
 
         btnTemporal = (JButton) e.getSource();
@@ -96,14 +97,19 @@ public class cruzCero extends MinMax implements ActionListener {
                 JOptionPane.showMessageDialog(mDialog, "Empate");
                 // this close de windows of the game to return to the menu
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
             }
             if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
                 // this close de windows of the game to return to the menu
-                // wGame.dispose();
+                //wGame.dispose();
                 // !!!!! i couldn't do that the menu windows set visible when the game is over
                 // !!!!!!
                 // visibleMenu(menu);
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
+
             }
 
         }
@@ -121,11 +127,15 @@ public class cruzCero extends MinMax implements ActionListener {
             if (minMax.tieGame()) {
                 JOptionPane.showMessageDialog(mDialog, "EMPATE!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
 
             }
             if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
             }
         }
 
@@ -142,11 +152,15 @@ public class cruzCero extends MinMax implements ActionListener {
             if (minMax.tieGame()) {
                 JOptionPane.showMessageDialog(mDialog, "EMPATE!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
 
             }
             if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
             }
         }
 
@@ -163,11 +177,15 @@ public class cruzCero extends MinMax implements ActionListener {
             if (minMax.tieGame()) {
                 JOptionPane.showMessageDialog(mDialog, "EMPATE!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
 
             }
             if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
             }
         }
 
@@ -184,11 +202,15 @@ public class cruzCero extends MinMax implements ActionListener {
             if (minMax.tieGame()) {
                 JOptionPane.showMessageDialog(mDialog, "EMPATE!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
 
             }
             if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
             }
         }
 
@@ -205,11 +227,15 @@ public class cruzCero extends MinMax implements ActionListener {
             if (minMax.tieGame()) {
                 JOptionPane.showMessageDialog(mDialog, "EMPATE!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
 
             }
             if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
             }
         }
 
@@ -226,11 +252,15 @@ public class cruzCero extends MinMax implements ActionListener {
             if (minMax.tieGame()) {
                 JOptionPane.showMessageDialog(mDialog, "EMPATE!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
 
             }
             if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
             }
         }
 
@@ -247,11 +277,15 @@ public class cruzCero extends MinMax implements ActionListener {
             if (minMax.tieGame()) {
                 JOptionPane.showMessageDialog(mDialog, "EMPATE!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
 
             }
             if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
             }
         }
 
@@ -268,10 +302,14 @@ public class cruzCero extends MinMax implements ActionListener {
             if (minMax.tieGame()) {
                 JOptionPane.showMessageDialog(mDialog, "EMPATE!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
             }
             if (win = minMax.winGame() == true) {
                 JOptionPane.showMessageDialog(mDialog, "Has ganado!");
                 // wGame.dispose();
+                Menu.wMenu.setVisible(true);
+                wGame.setVisible(false);
             }
         }
 
