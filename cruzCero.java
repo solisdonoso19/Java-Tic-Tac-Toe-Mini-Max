@@ -23,7 +23,7 @@ public class cruzCero extends MinMax implements ActionListener {
         // displays game windows on screen
         wGame = new JFrame("Juego Cruz y Cero-JUEGO");
         // this place the window in the center of the screen
-        wGame.setSize(600, 600);
+        wGame.setSize(510, 530);
         wGame.setLocationRelativeTo(null);
         wGame.setLayout(null);
         // destroy the windows when users close the game

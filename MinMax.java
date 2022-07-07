@@ -23,9 +23,9 @@ public class MinMax {
     public boolean tieGame() {
         boolean tie = true;
         for (int i = 0; i < endboard; i++) {
-            if (gameValues[i] == 1 || gameValues[i] == 2){ 
-                continue; 
-            }else{
+            if (gameValues[i] == 1 || gameValues[i] == 2) {
+                continue;
+            } else {
                 return false;
             }
         }
@@ -54,59 +54,58 @@ public class MinMax {
         return false;
     }
 
-    // c void miniMax() {
-    // int bestPlay = -1, max, actualMax;
-    // = Integer.MIN_VALUE;
-    // i = 0; i < endboard; i++) {
-    // gameValues[i] == 0) {
-    // int tmpBestPlay;
-    // gameValues[i] = 2;
-    // tmpBestPlay = i;
+    void miniMax() {
+        int bestPlay = -1, max = 0, actualMax = 0;
+        max = Integer.MIN_VALUE;
+        for (int i = 0; i < endboard; i++) {
+            if (gameValues[i] == 0) {
+                int tmpBestPlay;
+                gameValues[i] = 2;
+                tmpBestPlay = i;
 
-    //
+                actualMax = minValue(0, Integer.MIN_VALUE, Integer.MAX_VALUE);
+                gameValues[tmpBestPlay] = 0;
 
-    // gameValues[tmpBestPlay] = 0;
+                if (max < actualMax) {
+                    max = actualMax;
+                    bestPlay = tmpBestPlay;
+                }
+            }
+        }
 
-    // max < actualMax) {
-    // max = actualMax;
-    // bestPlay = tmpBestPlay;
-    // }
-    // }
-    // }
-    // gameValues[bestPlay] = 1;
-    // change = false;
-    // }
+        gameValues[bestPlay] = 2;
+        change = false;
+    }
 
-    // public int minValue(int deph, int alfa, int beta) {
+    public int minValue(int deph, int alfa, int beta) {
 
-    // for (int i = 0; i < endboard; i++) {
-    // if (gameValues[i] == 0) {
-    // int tmpBestPlay;
-    // gameValues[i] = 2;
-    // tmpBestPlay = i;
+        for (int i = 0; i < endboard; i++) {
+            if (gameValues[i] == 0) {
+                int tmpBestPlay;
+                gameValues[i] = 1;
+                tmpBestPlay = i;
 
-    // actualMax = minValue(0, Integer.MIN_VALUE, Integer.MAX_VALUE);
-    // gameValues[tmpBestPlay] = 0;
+                beta = maxValu(deph, alfa, beta);
+                gameValues[tmpBestPlay] = 0;
+                if (alfa >= beta) {
+                    return alfa;
 
-    // if (max < actualMax) {
-    // max = actualMax;
-    //
+                }
+            }
+        }
+        return beta;
+    }
 
-    // }
-    // }
-    // }
-    // }
+    public int maxValue(int deph, int alfa, int beta) {
+        return 0;
+    }
 
-    // public void maxValue(int deph, int alfa, int beta) {
+    public void heuristica() {
 
-    // }
+    }
 
-    // public void heuristica() {
+    public void cost() {
 
-    // }
-
-    // public void cost() {
-
-    // }
+    }
 
 }
