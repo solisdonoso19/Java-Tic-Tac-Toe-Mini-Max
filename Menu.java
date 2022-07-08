@@ -16,6 +16,7 @@ public class Menu extends cruzCero implements ActionListener {
     // object of game
     cruzCero game = new cruzCero();
 
+    // turn
     void printMenuWindow() {
         // displays menu windows on screen
         wMenu = new JFrame("Juego Cruz y Cero");

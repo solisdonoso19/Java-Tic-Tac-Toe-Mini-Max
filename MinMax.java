@@ -135,7 +135,26 @@ public class MinMax {
     }
 
     public int cost(int player) {
-        return 0;
-    }
+        int value = 0;
+        if (gameValues[0] == gameValues[1] && gameValues[1] == gameValues[2] && gameValues[0] != 0) {
+            return true;
+        } else if (gameValues[3] == gameValues[4] && gameValues[4] == gameValues[5] && gameValues[3] != 0) {
+            return true;
+        } else if (gameValues[6] == gameValues[7] && gameValues[7] == gameValues[8] && gameValues[6] != 0) {
+            return true;
+        } else if (gameValues[0] == gameValues[3] && gameValues[3] == gameValues[6] && gameValues[0] != 0) {
+            return true;
+        } else if (gameValues[1] == gameValues[4] && gameValues[4] == gameValues[7] && gameValues[1] != 0) {
+            return true;
+        } else if (gameValues[2] == gameValues[5] && gameValues[5] == gameValues[8] && gameValues[2] != 0) {
+            return true;
+        } else if (gameValues[0] == gameValues[4] && gameValues[4] == gameValues[8] && gameValues[0] != 0) {
+            return true;
+        } else if (gameValues[2] == gameValues[4] && gameValues[4] == gameValues[6] && gameValues[2] != 0) {
+            return true;
+        }
+        return false;
+    }return 0;
+}
 
 }
