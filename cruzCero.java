@@ -95,8 +95,8 @@ public class cruzCero extends MinMax implements ActionListener {
                     btnGame[i][j].removeActionListener(this);
                     if (!minMax.isFull() && (minMax.isWin() != 1 && minMax.isWin() != 2)) {
                         minMax.miniMax();
-                        minMax.endMessage();
                     }
+                    minMax.endMessage();
                     if (minMax.isFull()) {
                         JOptionPane.showMessageDialog(cruzCero.mDialog, "EMPATE!");
                         cruzCero.wGame.dispose();
