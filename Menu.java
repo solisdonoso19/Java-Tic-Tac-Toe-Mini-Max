@@ -77,6 +77,7 @@ public class Menu extends cruzCero implements ActionListener {
             team[1].setBackground(new java.awt.Color(111, 118, 113));
             game.teamX = false;
             game.team0 = true;
+
         }
         // if X button is selected
         if (e.getSource() == team[1]) {
@@ -85,6 +86,7 @@ public class Menu extends cruzCero implements ActionListener {
             team[1].setBackground(new java.awt.Color(78, 212, 112));
             game.teamX = true;
             game.team0 = false;
+
         }
 
         if (e.getSource() == gameInit) {

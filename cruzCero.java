@@ -5,21 +5,23 @@ import java.awt.Font;
 
 public class cruzCero extends MinMax implements ActionListener {
     // JFrame windows
-    protected JFrame wGame, mDialog;
+    public static JFrame wGame, mDialog;
     // button array
-    public static JButton[] btnGame = new JButton[9];
+    public static JButton[][] btnGame = new JButton[3][3];
     // booleans for character selected
     protected boolean team0, teamX;
     // Character X & 0
-    public static String target;
+    public static String targetPC, targetHuman;
     // variable to determine first turn
-    protected boolean turn, win;
+    protected boolean win;
     // object of minmax
     protected MinMax minMax = new MinMax();
 
     protected JButton btnTemporal = new JButton();
 
     void printGameWindow(JFrame menu) {
+        // initializing matriz on minmax
+        minMax.initValues();
         // displays game windows on screen
         wGame = new JFrame("Juego Cruz y Cero-JUEGO");
         // this place the window in the center of the screen
@@ -33,20 +35,28 @@ public class cruzCero extends MinMax implements ActionListener {
         // this set the menu visible when users close the game windows
         visibleMenu(menu);// this
         // display buttons
-        for (int i = 0; i <= 8; i++) {
-            btnGame[i] = new JButton("");
-            btnGame[i].setFont(new Font("Serif", Font.PLAIN, 22));
-            btnGame[i].setBounds(166 * (i % 3), 166 * (i / 3), 155, 155);
-            btnGame[i].addActionListener(this);
-            wGame.add(btnGame[i]);
+        for (int i = 0, y = 0; i <= 2; i++, y += 155) {
+            for (int j = 0, x = 0; j <= 2; j++, x += 155) {
+                btnGame[i][j] = new JButton("");
+                btnGame[i][j].setFont(new Font("Serif", Font.PLAIN, 22));
+                btnGame[i][j].setBounds(x, y, 155, 155);
+                btnGame[i][j].addActionListener(this);
+                wGame.add(btnGame[i][j]);
+            }
         }
         // initializing target
         if (team0) {
-            target = "0";
+            targetHuman = "0";
+            targetPC = "X";
         } else {
-            target = "X";
+            targetHuman = "X";
+            targetPC = "0";
         }
-        turn = turno();
+        if (!turno()) {
+            // this is the best movement to first player
+            minMax.miniMax();
+        }
+
     }
 
     // set visible menu windows
@@ -62,7 +72,7 @@ public class cruzCero extends MinMax implements ActionListener {
     // 60% of the time the computer starts
     boolean turno() {
         double firstTurn = Math.random();
-        if (firstTurn < 0.2) { // <- determined 60% of the time
+        if (firstTurn < 0.7) { // <- determined 60% of the time
             JOptionPane.showMessageDialog(mDialog, "El primer turno es de la COMPUTADORA!");
             return false;
         } else {
@@ -76,245 +86,25 @@ public class cruzCero extends MinMax implements ActionListener {
      * juego
      */
     public void actionPerformed(ActionEvent e) {
+        for (int i = 0; i <= 2; i++) {
+            for (int j = 0; j <= 2; j++) {
+                if (e.getSource() == btnGame[i][j] && minMax.gameValues[i][j] == 0) {
+                    btnGame[i][j].setText(targetHuman);
+                    minMax.gameValues[i][j] = 1;
+                    minMax.consoleLog();
+                    btnGame[i][j].removeActionListener(this);
+                    if (!minMax.isFull() && (minMax.isWin() != 1 && minMax.isWin() != 2)) {
+                        minMax.miniMax();
+                        minMax.endMessage();
+                    }
+                    if (minMax.isFull()) {
+                        JOptionPane.showMessageDialog(cruzCero.mDialog, "EMPATE!");
+                        cruzCero.wGame.dispose();
+                        Menu.wMenu.setVisible(true);
 
-        btnTemporal = (JButton) e.getSource();
-        if (e.getSource() == btnTemporal) {
-            System.out.println("entrando al boton temporal");
-        }
-        if (e.getSource() == btnGame[0]) {
-            // if my turn?
-            if (turn) { // yes, so
-                btnGame[0].setText(target);
-                // target value exchange
-                if (target.equals("0")) {
-                    target = "X";
-                } else if (target.equals("X")) {
-                    target = "0";
+                    }
                 }
             }
-
-            minMax.assigValues();
-            // call the win function
-
-            if (minMax.tieGame()) {
-                JOptionPane.showMessageDialog(mDialog, "Empate");
-                // this close de windows of the game to return to the menu
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-            }
-            if (win = minMax.winGame() == true) {
-                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                // this close de windows of the game to return to the menu
-                // wGame.dispose();
-                // !!!!! i couldn't do that the menu windows set visible when the game is over
-                // !!!!!!
-                // visibleMenu(menu);
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-
-            }
-
         }
-
-        if (e.getSource() == btnGame[1]) {
-            if (turn) {
-                btnGame[1].setText(target);
-                if (target.equals("0")) {
-                    target = "X";
-                } else if (target.equals("X")) {
-                    target = "0";
-                }
-            }
-            minMax.assigValues();
-            if (minMax.tieGame()) {
-                JOptionPane.showMessageDialog(mDialog, "EMPATE!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-
-            }
-            if (win = minMax.winGame() == true) {
-                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-            }
-        }
-
-        if (e.getSource() == btnGame[2]) {
-            if (turn) {
-                btnGame[2].setText(target);
-                if (target.equals("0")) {
-                    target = "X";
-                } else if (target.equals("X")) {
-                    target = "0";
-                }
-            }
-            minMax.assigValues();
-            if (minMax.tieGame()) {
-                JOptionPane.showMessageDialog(mDialog, "EMPATE!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-
-            }
-            if (win = minMax.winGame() == true) {
-                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-            }
-        }
-
-        if (e.getSource() == btnGame[3]) {
-            if (turn) {
-                btnGame[3].setText(target);
-                if (target.equals("0")) {
-                    target = "X";
-                } else if (target.equals("X")) {
-                    target = "0";
-                }
-            }
-            minMax.assigValues();
-            if (minMax.tieGame()) {
-                JOptionPane.showMessageDialog(mDialog, "EMPATE!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-
-            }
-            if (win = minMax.winGame() == true) {
-                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-            }
-        }
-
-        if (e.getSource() == btnGame[4]) {
-            if (turn) {
-                btnGame[4].setText(target);
-                if (target.equals("0")) {
-                    target = "X";
-                } else if (target.equals("X")) {
-                    target = "0";
-                }
-            }
-            minMax.assigValues();
-            if (minMax.tieGame()) {
-                JOptionPane.showMessageDialog(mDialog, "EMPATE!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-
-            }
-            if (win = minMax.winGame() == true) {
-                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-            }
-        }
-
-        if (e.getSource() == btnGame[5]) {
-            if (turn) {
-                btnGame[5].setText(target);
-                if (target.equals("0")) {
-                    target = "X";
-                } else if (target.equals("X")) {
-                    target = "0";
-                }
-            }
-            minMax.assigValues();
-            if (minMax.tieGame()) {
-                JOptionPane.showMessageDialog(mDialog, "EMPATE!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-
-            }
-            if (win = minMax.winGame() == true) {
-                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-            }
-        }
-
-        if (e.getSource() == btnGame[6]) {
-            if (turn) {
-                btnGame[6].setText(target);
-                if (target.equals("0")) {
-                    target = "X";
-                } else if (target.equals("X")) {
-                    target = "0";
-                }
-            }
-            minMax.assigValues();
-            if (minMax.tieGame()) {
-                JOptionPane.showMessageDialog(mDialog, "EMPATE!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-
-            }
-            if (win = minMax.winGame() == true) {
-                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-            }
-        }
-
-        if (e.getSource() == btnGame[7]) {
-            if (turn) {
-                btnGame[7].setText(target);
-                if (target.equals("0")) {
-                    target = "X";
-                } else if (target.equals("X")) {
-                    target = "0";
-                }
-            }
-            minMax.assigValues();
-            if (minMax.tieGame()) {
-                JOptionPane.showMessageDialog(mDialog, "EMPATE!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-
-            }
-            if (win = minMax.winGame() == true) {
-                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-            }
-        }
-
-        if (e.getSource() == btnGame[8]) {
-            if (turn) {
-                btnGame[8].setText(target);
-                if (target.equals("0")) {
-                    target = "X";
-                } else if (target.equals("X")) {
-                    target = "0";
-                }
-            }
-            minMax.assigValues();
-            if (minMax.tieGame()) {
-                JOptionPane.showMessageDialog(mDialog, "EMPATE!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-            }
-            if (win = minMax.winGame() == true) {
-                JOptionPane.showMessageDialog(mDialog, "Has ganado!");
-                // wGame.dispose();
-                Menu.wMenu.setVisible(true);
-                wGame.setVisible(false);
-            }
-        }
-
     }
 }
