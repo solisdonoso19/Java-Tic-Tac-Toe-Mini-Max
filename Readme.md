@@ -13,9 +13,13 @@ En teoría de juegos, minimax es un método de decisión para minimizar la pérd
 El funcionamiento de minimax puede resumirse en cómo elegir el mejor movimiento para ti mismo suponiendo que tu contrincante escogerá el peor para ti.
 
 John von Neumann es el creador del teorema minimax, quien dio la siguiente noción de lo que era un juego:
+
 _Un juego es una situación conflictiva en la que uno debe tomar una decisión sabiendo que los demás también toman decisiones, y que el resultado del conflicto se determina, de algún modo, a partir de todas las decisiones realizadas._
+
 También afirmó que:
+
 _Siempre existe una forma racional de actuar en juegos de dos participantes, si los intereses que los gobiernan son completamente opuestos._
+
 La demostración a esa afirmación se llama teoría minimax y surge en 1928.
 
 Este teorema establece que en los juegos bipersonales de suma cero, donde cada jugador conoce de antemano la estrategia de su oponente y sus consecuencias, existe una estrategia que permite a ambos jugadores minimizar la pérdida máxima esperada. En particular, cuando se examina cada posible estrategia, un jugador debe considerar todas las respuestas posibles del jugador adversario y la pérdida máxima que puede acarrear. El jugador juega, entonces, con la estrategia que resulta en la minimización de su máxima pérdida. Tal estrategia es llamada óptima para ambos jugadores sólo en caso de que sus minimaxes sean iguales (en valor absoluto) y contrarios (en signo). Si el valor común es cero el juego se convierte en un sinsentido.
@@ -25,9 +29,13 @@ En los juegos de suma no nula, existe tanto la estrategia minimax como la maximi
 ### Pasos del algoritmo Minmax🔁
 
 Pasos del algoritmo minimax:
+
 *Generación del árbol de juego. Se generarán todos los nodos hasta llegar a un estado terminal.
+
 *Cálculo de los valores de la función de utilidad para cada nodo terminal.
+
 *Calcular el valor de los nodos superiores a partir del valor de los inferiores. Según nivel si es MAX o MIN se elegirán los valores mínimos y máximos representando los movimientos del jugador y del oponente, de ahí el nombre de minimax.
+
 *Elegir la jugada valorando los valores que han llegado al nivel superior.
 
 El algoritmo explorará los nodos del árbol asignándoles un valor numérico mediante una función de evaluación, empezando por los nodos terminales y subiendo hacia la raíz. La función de utilidad definirá lo buena que es la posición para un jugador cuando la alcanza. En el caso del ajedrez los posibles valores son (+1,0,-1) que se corresponden con ganar, empatar y perder respectivamente. En el caso del backgammon los posibles valores tendrán un rango de [+192,-192], correspondiéndose con el valor de las fichas. Para cada juego pueden ser diferentes.
@@ -61,7 +69,9 @@ La búsqueda minimax es primero en profundidad, por ello en cualquier momento s�
 La poda alfa-beta toma dicho nombre de la utilización de dos parámetros que describen los límites sobre los valores hacia atrás que aparecen a lo largo de cada camino.
 
 *α es el valor de la mejor opción hasta el momento a lo largo del camino para MAX, esto implicará por lo tanto la elección del valor más alto
+
 *β es el valor de la mejor opción hasta el momento a lo largo del camino para MIN, esto implicará por lo tanto la elección del valor más bajo.
+
 Esta búsqueda alfa-beta va actualizando el valor de los parámetros según se recorre el árbol. El método realizará la poda de las ramas restantes cuando el valor actual que se está examinando sea peor que el valor actual de α o β para MAX o MIN, respectivamente.
 
 ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/AB_pruning.svg/400px-AB_pruning.svg.png)
@@ -71,10 +81,14 @@ Esta búsqueda alfa-beta va actualizando el valor de los parámetros según se r
 ### La Técnica Poda Alfa - Beta tiene un problema ❗
 
 Hay veces en la que la IA hace un movimiento no adecuado como se muestra continuación: 
+
 insertar gif
+
 Como podemos ver la IA escogio un movimiento que no resulto en victoria a pesar de que la victoria estaba garantizada, aunque inevitablemente termina como ganadora como se ve en el ejemplo mostrado arriba.
 La tecnica poda alfa-beta juega movimientos perfectos aunque en ocaciones elige una "victoria mas lenta". Esto se puede solucionar modificando un poco el algoritmo incluyendo la profundidad actual en las evaluacion de jugadas.
+
 insertar gif
+
 Aqui esta la misma jugada pero con el algoritmo ligeramente modificado.
 
 ### Cantidades de Evaluación 🔢
@@ -132,7 +146,7 @@ _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios
 
 ## Referencias Infográficas 📃
 
-_Para el desarrollo del algoritmo se consulto lo siguiente _
+_Para el desarrollo del algoritmo se consulto lo siguiente_
 
 * [El algoritmo Minimax y su aplicación en un juego - devcode.la](https://devcode.la/tutoriales/algoritmo-minimax/)
 * [Minimax - Wikipedia.org](https://devcode.la/tutoriales/algoritmo-minimax/)
