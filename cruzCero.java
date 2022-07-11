@@ -25,7 +25,7 @@ public class cruzCero extends MinMax implements ActionListener {
         // displays game windows on screen
         wGame = new JFrame("Juego Cruz y Cero-JUEGO");
         // this place the window in the center of the screen
-        wGame.setSize(510, 530);
+        wGame.setSize(480, 505);
         wGame.setLocationRelativeTo(null);
         wGame.setLayout(null);
         // destroy the windows when users close the game
@@ -73,16 +73,16 @@ public class cruzCero extends MinMax implements ActionListener {
     boolean turno() {
         double firstTurn = Math.random();
         if (firstTurn < 0.7) { // <- determined 60% of the time
-            if (Menu.x0=="0") {
+            if (Menu.x0 == "0") {
                 JOptionPane.showMessageDialog(mDialog, "Inicia la COMPUTADORA con X !");
                 return false;
             } else {
                 JOptionPane.showMessageDialog(mDialog, "Inicia la COMPUTADORA con 0 !");
                 return false;
             }
-            
+
         } else {
-            JOptionPane.showMessageDialog(mDialog, "El primer turno es de USTED! \n            Juegas con "+Menu.x0);
+            JOptionPane.showMessageDialog(mDialog, "El primer turno es de USTED! \n            Juegas con " + Menu.x0);
             return true; // <- other 40%
         }
     }
@@ -102,9 +102,12 @@ public class cruzCero extends MinMax implements ActionListener {
                     if (!minMax.isFull() && (minMax.isWin() != 1 && minMax.isWin() != 2)) {
                         minMax.miniMax();
                     }
-                    minMax.endMessage();/* esto hacia que se muestre 2 veces el mensaje que la pc gano, ya se corrigio*/
+                    minMax.endMessage();/*
+                                         * esto hacia que se muestre 2 veces el mensaje que la pc gano, ya se corrigio
+                                         */
                     if (minMax.isFull()) {
-                        JOptionPane.showMessageDialog(cruzCero.mDialog, "                  EMPATE!\n        SIGUE INTENTANDO!");
+                        JOptionPane.showMessageDialog(cruzCero.mDialog,
+                                "                  EMPATE!\n        SIGUE INTENTANDO!");
                         cruzCero.wGame.dispose();
                         Menu.wMenu.setVisible(true);
 
