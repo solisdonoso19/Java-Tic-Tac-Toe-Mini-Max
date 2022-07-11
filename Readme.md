@@ -30,13 +30,13 @@ En los juegos de suma no nula, existe tanto la estrategia minimax como la maximi
 
 Pasos del algoritmo minimax:
 
-*Generación del árbol de juego. Se generarán todos los nodos hasta llegar a un estado terminal.
+* Generación del árbol de juego. Se generarán todos los nodos hasta llegar a un estado terminal.
 
-*Cálculo de los valores de la función de utilidad para cada nodo terminal.
+* Cálculo de los valores de la función de utilidad para cada nodo terminal.
 
-*Calcular el valor de los nodos superiores a partir del valor de los inferiores. Según nivel si es MAX o MIN se elegirán los valores mínimos y máximos representando los movimientos del jugador y del oponente, de ahí el nombre de minimax.
+* Calcular el valor de los nodos superiores a partir del valor de los inferiores. Según nivel si es MAX o MIN se elegirán los valores mínimos y máximos representando los movimientos del jugador y del oponente, de ahí el nombre de minimax.
 
-*Elegir la jugada valorando los valores que han llegado al nivel superior.
+* Elegir la jugada valorando los valores que han llegado al nivel superior.
 
 El algoritmo explorará los nodos del árbol asignándoles un valor numérico mediante una función de evaluación, empezando por los nodos terminales y subiendo hacia la raíz. La función de utilidad definirá lo buena que es la posición para un jugador cuando la alcanza. En el caso del ajedrez los posibles valores son (+1,0,-1) que se corresponden con ganar, empatar y perder respectivamente. En el caso del backgammon los posibles valores tendrán un rango de [+192,-192], correspondiéndose con el valor de las fichas. Para cada juego pueden ser diferentes.
 
