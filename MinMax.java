@@ -5,7 +5,7 @@ import java.util.*;
 
 public class MinMax {
     protected Integer[][] gameValues = new Integer[3][3];
-    protected Integer Depth = 5, contPlay = 0;
+    public static Integer Depth = Menu.nivdif/*representa nivel de dificultad */, contPlay = 0;
     protected static Integer endBoard = 3;
 
     // initializing matriz on minmax
@@ -18,6 +18,7 @@ public class MinMax {
 
     // print on console all the plays
     protected void consoleLog() {
+        System.out.println("nivel de dificultad "+ Depth);
         contPlay = contPlay + 1;
         System.out.println("Jugada: " + contPlay);
         for (int i = 0; i < endBoard; i++) {
@@ -105,13 +106,14 @@ public class MinMax {
 
     protected void endMessage() {
         if (isWin() == 1) {
-            JOptionPane.showMessageDialog(cruzCero.mDialog, "GANASTE!");
+            JOptionPane.showMessageDialog(cruzCero.mDialog, "                 GANASTE!");
             cruzCero.wGame.dispose();
             Menu.wMenu.setVisible(true);
         } else if (isWin() == 2) {
             JOptionPane.showMessageDialog(cruzCero.mDialog, "GANO LA COMPUTADORA!");
             cruzCero.wGame.dispose();
             Menu.wMenu.setVisible(true);
+            
         }
     }
 
@@ -145,12 +147,13 @@ public class MinMax {
         gameValues[bestColumn][bestRow] = 2;
         cruzCero.btnGame[bestColumn][bestRow].setText(cruzCero.targetPC);
         consoleLog();
-        endMessage();
+        //endMessage(); desactive la llamada al metodo para que no muestre en JOptionPane 2 veces
 
     }
 
     public int ValorMin(int deph, int alfa, int beta) {
 
+        Depth = Menu.nivdif;/*representa nivel de dificultad */
         if (isWin() == 1 || isWin() == 2) {
             return heuristics();
         } else if (isFull()) {
