@@ -3,10 +3,11 @@
 _Sencillo programa del juego Tic Tac-Toe, Gato o Cruz y Cero de humano contra computadora, utilizando el algoritmo MinMax_
 
 ## Gameplay 🕹
+![gameplay](imagengif/1.gif)
 
-No es posible vencer a la IA cuando el nivel de profundidad de la busqueda en el arbol es alta, sin embargo cuando la profundidad es baja es posible ganarle. La mayoria de la veces termina en empate o la IA gana.
+No es posible vencer a la IA cuando el nivel de profundidad de la busqueda en el árbol es alta, sin embargo cuando la profundidad es baja es posible ganarle, pero sigue siendo dificil. La mayoría de las veces termina en empate o la IA gana.
 
-## Algoritmo MinMax ✔
+## Algoritmo MinMax ✅
 
 En teoría de juegos, minimax es un método de decisión para minimizar la pérdida máxima esperada en juegos con adversario y con información perfecta. Minimax es un algoritmo recursivo.
 
@@ -52,7 +53,7 @@ El primer paso será calcular los nodos terminales, en verde. Posteriormente cal
 
 ![img](https://upload.wikimedia.org/wikipedia/commons/d/d6/Minimax2.png)
 
-### Optimización📊
+### Optimización 📊
 
 En la práctica el método minimax es impracticable excepto en supuestos sencillos. Realizar la búsqueda completa requerirían cantidades excesivas de tiempo y memoria.
 
@@ -60,7 +61,7 @@ Claude Shannon en su texto sobre ajedrez de 1950 (Programming a Computer for Pla
 
 Para optimizar minimax puede limitarse la búsqueda por nivel de profundidad o por tiempo de ejecución. Otra posible técnica es el uso de la poda alfa-beta. Esta optimización se basa en evitar el cálculo de ramas cuya evaluación final no va a poder superar los valores previamente obtenidos.
 
-### Poda Alfa-Beta
+### Poda Alfa-Beta ⏳
 
 El problema de la búsqueda Minimax es que el número de estados a explorar es exponencial al número de movimientos. Partiendo de este hecho, la técnica de poda alfa-beta trata de eliminar partes grandes del árbol, aplicándolo a un árbol Minimax estándar, de forma que se devuelva el mismo movimiento que devolvería este, gracias a que la poda de dichas ramas no influye en la decisión final.
 
@@ -76,25 +77,25 @@ Esta búsqueda alfa-beta va actualizando el valor de los parámetros según se r
 
 ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/AB_pruning.svg/400px-AB_pruning.svg.png)
 
-## Detalles a Tomar en Cuenta
+## Detalles a Tomar en Cuenta 🧠
 
 ### La Técnica Poda Alfa - Beta tiene un problema ❗
 
-Hay veces en la que la IA hace un movimiento no adecuado como se muestra continuación: 
+Hay veces en la que la IA hace un movimiento no adecuado como se muestra a continuación: 
 
-insertar gif
+![gameplay](imagengif/2.gif)
 
-Como podemos ver la IA escogio un movimiento que no resulto en victoria a pesar de que la victoria estaba garantizada, aunque inevitablemente termina como ganadora como se ve en el ejemplo mostrado arriba.
-La tecnica poda alfa-beta juega movimientos perfectos aunque en ocaciones elige una "victoria mas lenta". Esto se puede solucionar modificando un poco el algoritmo incluyendo la profundidad actual en las evaluacion de jugadas.
+Como podemos ver la IA escogió un movimiento que no resulto en victoria a pesar de que la victoria estaba garantizada, aunque inevitablemente termina como ganadora como se ve en el ejemplo mostrado arriba.
+La tecnica poda alfa-beta juega movimientos perfectos aunque en ocaciones elige una "victoria mas lenta". Esto se puede solucionar modificando un poco el algoritmo incluyendo la profundidad actual en la evaluación de jugadas.
 
-insertar gif
+![gameplay](imagengif/3.gif)
 
-Aqui esta la misma jugada pero con el algoritmo ligeramente modificado.
+Aquí está la misma jugada pero con el algoritmo ligeramente modificado.
 
 ### Cantidades de Evaluación 🔢
-Hay 255168 juegos posibles de Tic-tac-toe excluyendo la simetría. El primer jugador gana 131184 de estos, el segundo jugador gana 77904 juegos y los 46080 restantes son empates.
+Hay 255,168 jugadas posibles de Tic-tac-toe excluyendo la simetría. El primer jugador gana 131,184 de estos, el segundo jugador gana 77,904 juegos y los 46,080 restantes son empates.
 
-Cuando se utiliza Minimax normal, la IA evalua 59,704 combinaciones posibles en su primer movimiento(este numero disminuye a lo largo de la partida a medida de que hay menos celdas disponibles). Con la técnica Poda Alfa-Beta este número disminuye a 2,337 pero al agregar el ajuste para la solución del problema mencionado arriba, este número aumenta ligeramente a 2,787. Es un aumento sumamente pequeño en comparación con las ventajas que el algoritmo brinda.
+Cuando se utiliza Minimax normal, la IA evalua 59,704 combinaciones posibles en su primer movimiento(este numero disminuye a lo largo de la partida a medida de que hay menos celdas disponibles). Con la técnica Poda Alfa-Beta este número disminuye a 2,337, pero al agregar el ajuste para la solución del problema mencionado arriba, este número aumenta ligeramente a 2,787. Es un aumento sumamente pequeño en comparación con las ventajas que el algoritmo brinda.
 
 
 ## Comenzando 🚀
@@ -156,7 +157,7 @@ _Para el desarrollo del algoritmo se consulto lo siguiente_
 ## Expresiones de Gratitud 🎁
 
 * Gracias a [JuanJTR](https://github.com/JuanJTR) por la ayuda en el front-end del programa📢
-* Gracias al profesor Manuel Florez de la Universidad Tecnologíca de Panamá (UTP) por brindarnos su conocimiento y motivación para el desarrollo de este programa para fines academicos📚. 
+* Gracias al profesor Manuel Flores de la Universidad Tecnologíca de Panamá (UTP) por brindarnos su conocimiento y motivación para el desarrollo de este programa para fines academicos📚. 
 * Gracias a todos por leer y probar el codígo, espero sea de ayuda e interés 🤓.
 
 
