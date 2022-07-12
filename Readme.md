@@ -7,7 +7,7 @@ _Sencillo programa del juego Tic Tac-Toe, Gato o Cruz y Cero de humano contra co
 
 No es posible vencer a la IA cuando el nivel de profundidad de la busqueda en el arbol es alta, sin embargo cuando la profundidad es baja es posible ganarle, pero sigue siendo dificil. La mayoria de la veces termina en empate o la IA gana.
 
-## Algoritmo MinMax ✔
+## Algoritmo MinMax ✅
 
 En teoría de juegos, minimax es un método de decisión para minimizar la pérdida máxima esperada en juegos con adversario y con información perfecta. Minimax es un algoritmo recursivo.
 
