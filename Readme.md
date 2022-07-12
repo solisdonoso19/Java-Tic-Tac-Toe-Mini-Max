@@ -4,7 +4,8 @@ _Sencillo programa del juego Tic Tac-Toe, Gato o Cruz y Cero de humano contra co
 
 ## Gameplay 🕹
 ![gameplay](imagengif/1.gif)
-No es posible vencer a la IA cuando el nivel de profundidad de la busqueda en el arbol es alta, sin embargo cuando la profundidad es baja es posible ganarle. La mayoria de la veces termina en empate o la IA gana.
+
+No es posible vencer a la IA cuando el nivel de profundidad de la busqueda en el arbol es alta, sin embargo cuando la profundidad es baja es posible ganarle, pero sigue siendo dificil. La mayoria de la veces termina en empate o la IA gana.
 
 ## Algoritmo MinMax ✔
 
