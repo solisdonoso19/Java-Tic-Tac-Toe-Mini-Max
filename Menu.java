@@ -147,7 +147,7 @@ public class Menu extends cruzCero implements ActionListener {
 
         /* nivel facil */
         if (e.getSource() == btnnivel[0]) {
-            nivdif = 0;
+            nivdif = 1;
             btnnivel[1].setBackground(new java.awt.Color(111, 118, 113));/* gris */
             btnnivel[1].setEnabled(false);/* desactiva el boton normal color amarrillo */
             btnnivel[2].setBackground(new java.awt.Color(111, 118, 113));/* gris */
