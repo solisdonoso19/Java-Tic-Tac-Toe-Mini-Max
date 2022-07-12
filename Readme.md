@@ -129,8 +129,6 @@ javac Main.java
 java Main
 ```
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
-
 ## Construido con 🛠️
 
 _El lenguaje de programación utilizado_

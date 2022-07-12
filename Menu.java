@@ -156,7 +156,7 @@ public class Menu extends cruzCero implements ActionListener {
         }
         /* nivel normal */
         if (e.getSource() == btnnivel[1]) {
-            nivdif = 2;
+            nivdif = 5;
             btnnivel[0].setBackground(new java.awt.Color(111, 118, 113));/* gris */
             btnnivel[0].setEnabled(false);/* desactiva el boton facil color verde */
             btnnivel[2].setBackground(new java.awt.Color(111, 118, 113));/* gris */
@@ -165,7 +165,7 @@ public class Menu extends cruzCero implements ActionListener {
         }
         /* nivel dificil */
         if (e.getSource() == btnnivel[2]) {
-            nivdif = 5;
+            nivdif = 9;
             btnnivel[1].setBackground(new java.awt.Color(111, 118, 113));/* gris */
             btnnivel[1].setEnabled(false);/* desactiva el boton normal color amarrillo */
             btnnivel[0].setBackground(new java.awt.Color(111, 118, 113));/* gris */
