@@ -53,7 +53,7 @@ El primer paso será calcular los nodos terminales, en verde. Posteriormente cal
 
 ![img](https://upload.wikimedia.org/wikipedia/commons/d/d6/Minimax2.png)
 
-### Optimización📊
+### Optimización 📊
 
 En la práctica el método minimax es impracticable excepto en supuestos sencillos. Realizar la búsqueda completa requerirían cantidades excesivas de tiempo y memoria.
 
@@ -61,7 +61,7 @@ Claude Shannon en su texto sobre ajedrez de 1950 (Programming a Computer for Pla
 
 Para optimizar minimax puede limitarse la búsqueda por nivel de profundidad o por tiempo de ejecución. Otra posible técnica es el uso de la poda alfa-beta. Esta optimización se basa en evitar el cálculo de ramas cuya evaluación final no va a poder superar los valores previamente obtenidos.
 
-### Poda Alfa-Beta
+### Poda Alfa-Beta ⏳
 
 El problema de la búsqueda Minimax es que el número de estados a explorar es exponencial al número de movimientos. Partiendo de este hecho, la técnica de poda alfa-beta trata de eliminar partes grandes del árbol, aplicándolo a un árbol Minimax estándar, de forma que se devuelva el mismo movimiento que devolvería este, gracias a que la poda de dichas ramas no influye en la decisión final.
 
@@ -77,7 +77,7 @@ Esta búsqueda alfa-beta va actualizando el valor de los parámetros según se r
 
 ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/AB_pruning.svg/400px-AB_pruning.svg.png)
 
-## Detalles a Tomar en Cuenta
+## Detalles a Tomar en Cuenta 🧠
 
 ### La Técnica Poda Alfa - Beta tiene un problema ❗
 
