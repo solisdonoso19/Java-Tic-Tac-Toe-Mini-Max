@@ -5,7 +5,7 @@ _Sencillo programa del juego Tic Tac-Toe, Gato o Cruz y Cero de humano contra co
 ## Gameplay 🕹
 ![gameplay](imagengif/1.gif)
 
-No es posible vencer a la IA cuando el nivel de profundidad de la busqueda en el arbol es alta, sin embargo cuando la profundidad es baja es posible ganarle, pero sigue siendo dificil. La mayoria de la veces termina en empate o la IA gana.
+No es posible vencer a la IA cuando el nivel de profundidad de la busqueda en el árbol es alta, sin embargo cuando la profundidad es baja es posible ganarle, pero sigue siendo dificil. La mayoría de las veces termina en empate o la IA gana.
 
 ## Algoritmo MinMax ✅
 
@@ -81,16 +81,16 @@ Esta búsqueda alfa-beta va actualizando el valor de los parámetros según se r
 
 ### La Técnica Poda Alfa - Beta tiene un problema ❗
 
-Hay veces en la que la IA hace un movimiento no adecuado como se muestra continuación: 
+Hay veces en la que la IA hace un movimiento no adecuado como se muestra a continuación: 
 
 ![gameplay](imagengif/2.gif)
 
-Como podemos ver la IA escogio un movimiento que no resulto en victoria a pesar de que la victoria estaba garantizada, aunque inevitablemente termina como ganadora como se ve en el ejemplo mostrado arriba.
-La tecnica poda alfa-beta juega movimientos perfectos aunque en ocaciones elige una "victoria mas lenta". Esto se puede solucionar modificando un poco el algoritmo incluyendo la profundidad actual en las evaluacion de jugadas.
+Como podemos ver la IA escogió un movimiento que no resulto en victoria a pesar de que la victoria estaba garantizada, aunque inevitablemente termina como ganadora como se ve en el ejemplo mostrado arriba.
+La tecnica poda alfa-beta juega movimientos perfectos aunque en ocaciones elige una "victoria mas lenta". Esto se puede solucionar modificando un poco el algoritmo incluyendo la profundidad actual en la evaluación de jugadas.
 
 ![gameplay](imagengif/3.gif)
 
-Aqui esta la misma jugada pero con el algoritmo ligeramente modificado.
+Aquí está la misma jugada pero con el algoritmo ligeramente modificado.
 
 ### Cantidades de Evaluación 🔢
 Hay 255,168 jugadas posibles de Tic-tac-toe excluyendo la simetría. El primer jugador gana 131,184 de estos, el segundo jugador gana 77,904 juegos y los 46,080 restantes son empates.
@@ -159,7 +159,7 @@ _Para el desarrollo del algoritmo se consulto lo siguiente_
 ## Expresiones de Gratitud 🎁
 
 * Gracias a [JuanJTR](https://github.com/JuanJTR) por la ayuda en el front-end del programa📢
-* Gracias al profesor Manuel Florez de la Universidad Tecnologíca de Panamá (UTP) por brindarnos su conocimiento y motivación para el desarrollo de este programa para fines academicos📚. 
+* Gracias al profesor Manuel Flores de la Universidad Tecnologíca de Panamá (UTP) por brindarnos su conocimiento y motivación para el desarrollo de este programa para fines academicos📚. 
 * Gracias a todos por leer y probar el codígo, espero sea de ayuda e interés 🤓.
 
 
