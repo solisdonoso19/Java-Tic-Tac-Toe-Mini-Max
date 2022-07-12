@@ -95,7 +95,7 @@ Aqui esta la misma jugada pero con el algoritmo ligeramente modificado.
 ### Cantidades de Evaluación 🔢
 Hay 255,168 jugadas posibles de Tic-tac-toe excluyendo la simetría. El primer jugador gana 131,184 de estos, el segundo jugador gana 77,904 juegos y los 46,080 restantes son empates.
 
-Cuando se utiliza Minimax normal, la IA evalua 59,704 combinaciones posibles en su primer movimiento(este numero disminuye a lo largo de la partida a medida de que hay menos celdas disponibles). Con la técnica Poda Alfa-Beta este número disminuye a 2,337 pero al agregar el ajuste para la solución del problema mencionado arriba, este número aumenta ligeramente a 2,787. Es un aumento sumamente pequeño en comparación con las ventajas que el algoritmo brinda.
+Cuando se utiliza Minimax normal, la IA evalua 59,704 combinaciones posibles en su primer movimiento(este numero disminuye a lo largo de la partida a medida de que hay menos celdas disponibles). Con la técnica Poda Alfa-Beta este número disminuye a 2,337, pero al agregar el ajuste para la solución del problema mencionado arriba, este número aumenta ligeramente a 2,787. Es un aumento sumamente pequeño en comparación con las ventajas que el algoritmo brinda.
 
 
 ## Comenzando 🚀
