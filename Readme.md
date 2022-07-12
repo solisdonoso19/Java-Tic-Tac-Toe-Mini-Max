@@ -3,7 +3,7 @@
 _Sencillo programa del juego Tic Tac-Toe, Gato o Cruz y Cero de humano contra computadora, utilizando el algoritmo MinMax_
 
 ## Gameplay 🕹
-
+![gameplay](imagengif/1.gif)
 No es posible vencer a la IA cuando el nivel de profundidad de la busqueda en el arbol es alta, sin embargo cuando la profundidad es baja es posible ganarle. La mayoria de la veces termina en empate o la IA gana.
 
 ## Algoritmo MinMax ✔
@@ -82,12 +82,12 @@ Esta búsqueda alfa-beta va actualizando el valor de los parámetros según se r
 
 Hay veces en la que la IA hace un movimiento no adecuado como se muestra continuación: 
 
-insertar gif
+![gameplay](imagengif/2.gif)
 
 Como podemos ver la IA escogio un movimiento que no resulto en victoria a pesar de que la victoria estaba garantizada, aunque inevitablemente termina como ganadora como se ve en el ejemplo mostrado arriba.
 La tecnica poda alfa-beta juega movimientos perfectos aunque en ocaciones elige una "victoria mas lenta". Esto se puede solucionar modificando un poco el algoritmo incluyendo la profundidad actual en las evaluacion de jugadas.
 
-insertar gif
+![gameplay](imagengif/3.gif)
 
 Aqui esta la misma jugada pero con el algoritmo ligeramente modificado.
 
