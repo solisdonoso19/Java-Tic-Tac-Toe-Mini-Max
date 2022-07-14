@@ -89,11 +89,11 @@ public class Menu extends cruzCero implements ActionListener {
         exit.addActionListener(this);
         // end display buttons
 
-        // some information
+        /* some information
         info = new JLabel("info");
         info.setFont(fuente);
         info.setBounds(20, 290, 200, 50);
-        wMenu.add(info);
+        wMenu.add(info);*/
 
         /* JUAN añadio texto en ventana */
         info = new JLabel("Seleccione un caracter para jugar");
