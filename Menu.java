@@ -89,11 +89,36 @@ public class Menu extends cruzCero implements ActionListener {
         exit.addActionListener(this);
         // end display buttons
 
-        /* some information
-        info = new JLabel("info");
+        //some information
+        info = new JLabel(" INTEGRANTES DEL GRUPO ");
         info.setFont(fuente);
-        info.setBounds(20, 290, 200, 50);
-        wMenu.add(info);*/
+        info.setBounds(160, 310, 300, 50);
+        wMenu.add(info);
+
+        info = new JLabel(" Nombres                  Cedula ");
+        info.setFont(fuente);
+        info.setBounds(165, 340, 400, 50);
+        wMenu.add(info);
+
+        info = new JLabel(" Juan Taylor.............8-971-255 ");
+        info.setFont(fuente);
+        info.setBounds(150, 370, 300, 50);
+        wMenu.add(info);
+
+        info = new JLabel(" Carlos Solis...........6-723-1380 ");
+        info.setFont(fuente);
+        info.setBounds(150, 400, 300, 50);
+        wMenu.add(info);
+
+        info = new JLabel(" Jose Villamonte....8-749-1103 ");
+        info.setFont(fuente);
+        info.setBounds(150, 430, 300, 50);
+        wMenu.add(info);
+
+        info = new JLabel(" Kenny Martinez....4-814-2452 ");
+        info.setFont(fuente);
+        info.setBounds(150, 460, 300, 50);
+        wMenu.add(info);
 
         /* JUAN añadio texto en ventana */
         info = new JLabel("Seleccione un caracter para jugar");
